@@ -25,7 +25,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QProcess *process;
-    const QString scriptPath = QDir::currentPath() + "/../script/my_script.sh";
+    const QString scriptPath = QDir::currentPath() + "/scripts/my_script.sh";
+
+    void displayData(const QByteArray &data1, const QByteArray &data2);
 };
 
 #endif // MAINWINDOW_H

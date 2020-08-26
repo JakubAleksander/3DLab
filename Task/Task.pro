@@ -21,6 +21,21 @@ HEADERS += \
 FORMS += \
         $$SRC_DIR/mainwindow.ui
 
+OTHER_FILES += \
+        $$PWD/scripts
+
+defineTest(copyScripts) {
+    files = $$1
+    dir = $$2
+
+    for(file, files){
+        QMAKE_POST_LINK += $$QMAKE_COPY_DIR $$shell_quote($$file) $$shell_quote($$dir)
+    }
+    export(QMAKE_POST_LINK)
+}
+
+copyScripts($$OTHER_FILES, $$OUT_PWD)
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
