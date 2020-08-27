@@ -21,6 +21,7 @@ void MainWindow::on_button_clicked()
     process->start(scriptPath);
     if(!process->waitForStarted()){
         ui->label->setText("Can't run script");
+        return;
     }
     process->waitForReadyRead();
     const QByteArray data1 = process->readLine();
