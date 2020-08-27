@@ -16,6 +16,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_button_clicked()
 {
     process = new QProcess();
+    connect(process, SIGNAL(finished(int)), process, SLOT(deleteLater()));
     process->start(scriptPath);
     if(!process->waitForStarted()){
         ui->label->setText("Can't run script");
