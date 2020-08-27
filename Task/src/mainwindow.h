@@ -5,7 +5,6 @@
 #include <QString>
 #include <QProcess>
 #include <QDir>
-#include <QCoreApplication>
 
 namespace Ui {
 class MainWindow;
